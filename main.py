@@ -62,21 +62,50 @@ langas, grafikas = plt.subplots()
 # Visus šiuos sąrašus atvaizduoti grafike. Grafikas turi turėti
 # pavadinimą, pavadintos ašys, pakeisti šriftų dydžiai.
 
-x = list(range(101))
-x2 = [i**2 for i in x]
-a = random.randint(1,5)
-x3 = [i*a for i in x2]
+# x = list(range(101))
+# x2 = [i**2 for i in x]
+# a = random.randint(1,5)
+# x3 = [i*a for i in x2]
+#
+# random_values = [random.randint(1,500) for i in range(100)]
+# # print(random_values)
+#
+# plt.plot(x, x2, label='$x^2$', color='blue', linestyle='-')
+# plt.plot(x, x3, label=f'$x^2$ * a (a={a:.2f})', color='green', linestyle='--')
+# plt.plot(x[:100], random_values, label='Atsitiktiniai skaičiai', color='red', linestyle=':')
+#
+# plt.title("Skirtingų skaičių sąrašų palyginimas", fontsize=16)
+# plt.xlabel("x reikšmės", fontsize=14)
+# plt.ylabel("y reikšmės", fontsize=12)
+#
+# plt.legend(fontsize=10)
+# plt.show()
 
-random_values = [random.randint(1,500) for i in range(100)]
-# print(random_values)
+# Turimos vidutinės mėnesių temparatūros
+# tC=[-3.2, -3.2, +0.4, +6.7, +12.4, +15.4, +17.9, +17.1, +12.3,
+# ↪ +7.2, +1.9, -1.9]
+# Nubraižykite stulpelinę diagramą. Neigiamas temperatūras
+# rodantys stulpeliai turi būti mėlyni, o teigiamas - žali. x ašyje
+# turi būti rodomi mėnesių pavadinimai.
 
-plt.plot(x, x2, label='$x^2$', color='blue', linestyle='-')
-plt.plot(x, x3, label=f'$x^2$ * a (a={a:.2f})', color='green', linestyle='--')
-plt.plot(x[:100], random_values, label='Atsitiktiniai skaičiai', color='red', linestyle=':')
 
-plt.title("Skirtingų skaičių sąrašų palyginimas", fontsize=16)
-plt.xlabel("x reikšmės", fontsize=14)
-plt.ylabel("y reikšmės", fontsize=12)
+tC = [-3.2, -3.2, +0.4, +6.7, +12.4, +15.4, +17.9, +17.1, +12.3, +7.2, +1.9, -1.9]
+months = ['Sausis', 'Vasaris', 'Kovas', 'Balandis', 'Gegužė', 'Birželis', 'Liepa', 'Rugpjūtis', 'Rugsėjis', 'Spalis', 'Lapkritis', 'Gruodis']
+colors = ['blue' if temp <0 else 'green' for temp in tC]
+plt.bar(months, tC, color=colors, width=0.25)
+plt.title("Vidutinės mėnesių temperatūros")
+plt.xlabel("Mėnesiai")
+plt.ylabel("Temperatūra (C)")
+plt.xticks(rotation=90)
 
-plt.legend(fontsize=10)
+bars = plt.bar(months, tC, color=colors, width=0.25)
+for bar, temp in zip(bars, tC):
+    height = bar.get_height()
+    plt.text(
+        bar.get_x() + bar.get_width() / 2,
+        height,
+        f'{temp:.1f}',
+        ha='center', va='bottom' if temp >=0 else 'top', fontsize=8
+    )
+
 plt.show()
