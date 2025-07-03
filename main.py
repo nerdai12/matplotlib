@@ -89,23 +89,23 @@ langas, grafikas = plt.subplots()
 # turi būti rodomi mėnesių pavadinimai.
 
 
-tC = [-3.2, -3.2, +0.4, +6.7, +12.4, +15.4, +17.9, +17.1, +12.3, +7.2, +1.9, -1.9]
-months = ['Sausis', 'Vasaris', 'Kovas', 'Balandis', 'Gegužė', 'Birželis', 'Liepa', 'Rugpjūtis', 'Rugsėjis', 'Spalis', 'Lapkritis', 'Gruodis']
-colors = ['blue' if temp <0 else 'green' for temp in tC]
-plt.bar(months, tC, color=colors, width=0.25)
-plt.title("Vidutinės mėnesių temperatūros")
-plt.xlabel("Mėnesiai")
-plt.ylabel("Temperatūra (C)")
-plt.xticks(rotation=90)
-
-bars = plt.bar(months, tC, color=colors, width=0.25)
-for bar, temp in zip(bars, tC):
-    height = bar.get_height()
-    plt.text(
-        bar.get_x() + bar.get_width() / 2,
-        height,
-        f'{temp:.1f}',
-        ha='center', va='bottom' if temp >=0 else 'top', fontsize=8
-    )
-
-plt.show()
+# tC = [-3.2, -3.2, +0.4, +6.7, +12.4, +15.4, +17.9, +17.1, +12.3, +7.2, +1.9, -1.9]
+# months = ['Sausis', 'Vasaris', 'Kovas', 'Balandis', 'Gegužė', 'Birželis', 'Liepa', 'Rugpjūtis', 'Rugsėjis', 'Spalis', 'Lapkritis', 'Gruodis']
+# colors = ['blue' if temp <0 else 'green' for temp in tC]
+# plt.bar(months, tC, color=colors, width=0.25)
+# plt.title("Vidutinės mėnesių temperatūros")
+# plt.xlabel("Mėnesiai")
+# plt.ylabel("Temperatūra (C)")
+# plt.xticks(rotation=90)
+#
+# bars = plt.bar(months, tC, color=colors, width=0.25)
+# for bar, temp in zip(bars, tC):
+#     height = bar.get_height()
+#     plt.text(
+#         bar.get_x() + bar.get_width() / 2,
+#         height,
+#         f'{temp:.1f}',
+#         ha='center', va='bottom' if temp >=0 else 'top', fontsize=8
+#     )
+#
+# plt.show()
